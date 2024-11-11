@@ -1,11 +1,16 @@
 <?php
-
-class Category{
-    static public function getAll(){
-        $stmt = DB::connexion()->prepare('SELECT * FROM category'); 
-        $stmt->execute();
-        return $stmt->fetchAll();
-        $stmt->close();
-        $stmt = null;
+class Category {
+    public static function getAll() {
+        global $db; // Assurez-vous que la connexion est accessible
+        
+        try {
+            $stmt = $db->prepare("SELECT * FROM categories");
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch(PDOException $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
     }
+
 }
+?>

@@ -1,7 +1,7 @@
 <?php
 
 class Commande{
-   /* static public function createCommande($data){
+   static public function createCommande($data){
         $query = "INSERT INTO commande(nom_com,prduit_com,qte_com,prix_com,total_com) values (:nom_com,:produit_com,:qte_com,:prix_com,:total_com)";
         $stmt = DB::connexion()->prepare($query);
         $stmt->bindParam(':nom_com',$data['nom_com']);
@@ -17,7 +17,7 @@ class Commande{
         }
         $stmt->close();
         $stmt = null;
-    }*/
+    }
 
     static public function getAll(){
         $stmt = DB::connexion()->prepare('SELECT * FROM commande');

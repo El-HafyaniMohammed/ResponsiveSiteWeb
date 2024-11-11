@@ -2,6 +2,7 @@
 
 require_once('./autoload.php');
 require_once("./views/includes/header.php");
+require_once 'config/database.php';
 
 $home = new HomeController();
 
